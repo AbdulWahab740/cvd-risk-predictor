@@ -1,5 +1,4 @@
-from fastapi import FastAPI, Request, HTTPException, Security, Depends
-from fastapi.security.api_key import APIKeyHeader
+from fastapi import FastAPI, Request, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import joblib
@@ -26,10 +25,6 @@ app.add_middleware(
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_MODEL_PATH = os.path.join(BASE_DIR, "output", "cost_sensitive_xgboost_model.pkl")
 MODEL_PATH = os.getenv("MODEL_PATH", DEFAULT_MODEL_PATH)
-API_KEY = os.getenv("API_KEY", "aalllo")
-
-api_key_header = APIKeyHeader(name=API_KEY, auto_error=False)
-
 # Load model
 print(f"Loading model from {MODEL_PATH}...")
 try:
@@ -67,12 +62,7 @@ class PatientData(BaseModel):
     active: int
     patient_id: Optional[str] = "unknown"
 
-async def verify_api_key(api_key: str = Security(api_key_header)):
-    if api_key and api_key.startswith("Bearer "):
-        token = api_key.split(" ")[1]
-        if token == API_KEY:
-            return token
-    raise HTTPException(status_code=401, detail="Unauthorized - Invalid API key")
+
 
 def get_feature_name(feature):
     """Convert feature code to readable name"""
@@ -244,8 +234,7 @@ async def health():
 async def predict(
     data: PatientData, 
     threshold: float = 0.5, 
-    top_n: int = 5,
-    token: str = Depends(verify_api_key)
+    top_n: int = 5
 ):
     """
     Main prediction endpoint
