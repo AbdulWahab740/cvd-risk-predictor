@@ -1,0 +1,204 @@
+[
+  {
+    "patient_id": "P001",
+    "risk_score": 0.9271,
+    "prediction": 1,
+    "risk_category": "HIGH",
+    "threshold_used": 0.5,
+    "top_risk_factors": [
+      {
+        "feature": "ap_hi",
+        "feature_name": "Systolic Blood Pressure",
+        "value": 155,
+        "unit": "mmHg",
+        "importance": 0.41575953364372253,
+        "shap_value": 0.7369997501373291,
+        "impact": "increases risk",
+        "interpretation": "Stage 2 hypertension"
+      },
+      {
+        "feature": "cholesterol",
+        "feature_name": "Cholesterol",
+        "value": 3,
+        "unit": "category",
+        "importance": 0.08715372532606125,
+        "shap_value": 0.43808192014694214,
+        "impact": "increases risk",
+        "interpretation": "Well above normal cholesterol"
+      },
+      {
+        "feature": "map",
+        "feature_name": "Mean Arterial Pressure",
+        "value": 115.0,
+        "unit": "mmHg",
+        "importance": 0.1574225127696991,
+        "shap_value": 0.24748972058296204,
+        "impact": "increases risk",
+        "interpretation": "High mean arterial pressure"
+      },
+      {
+        "feature": "age_years",
+        "feature_name": "Age",
+        "value": 62,
+        "unit": "years",
+        "importance": 0.0679037868976593,
+        "shap_value": 0.24621467292308807,
+        "impact": "increases risk",
+        "interpretation": "Senior"
+      },
+      {
+        "feature": "alco",
+        "feature_name": "Alcohol Consumption",
+        "value": 1,
+        "unit": "binary",
+        "importance": 0.012906940653920174,
+        "shap_value": -0.08511210232973099,
+        "impact": "decreases risk",
+        "interpretation": "Consumes alcohol"
+      }
+    ],
+    "feature_importance": [
+      {
+        "feature": "ap_hi",
+        "importance": 0.41575953364372253
+      },
+      {
+        "feature": "map",
+        "importance": 0.1574225127696991
+      },
+      {
+        "feature": "ap_lo",
+        "importance": 0.09826363623142242
+      },
+      {
+        "feature": "cholesterol",
+        "importance": 0.08715372532606125
+      },
+      {
+        "feature": "age_years",
+        "importance": 0.0679037868976593
+      },
+      {
+        "feature": "pulse_pressure",
+        "importance": 0.06620365381240845
+      },
+      {
+        "feature": "active",
+        "importance": 0.023476168513298035
+      },
+      {
+        "feature": "smoke",
+        "importance": 0.017291929572820663
+      },
+      {
+        "feature": "weight",
+        "importance": 0.01450774073600769
+      },
+      {
+        "feature": "bmi",
+        "importance": 0.014448908157646656
+      }
+    ]
+  },
+  {
+    "patient_id": "P002",
+    "risk_score": 0.1514,
+    "prediction": 0,
+    "risk_category": "LOW",
+    "threshold_used": 0.5,
+    "top_risk_factors": [
+      {
+        "feature": "age_years",
+        "feature_name": "Age",
+        "value": 35,
+        "unit": "years",
+        "importance": 0.0679037868976593,
+        "shap_value": -1.025888204574585,
+        "impact": "decreases risk",
+        "interpretation": "Young adult"
+      },
+      {
+        "feature": "ap_hi",
+        "feature_name": "Systolic Blood Pressure",
+        "value": 115,
+        "unit": "mmHg",
+        "importance": 0.41575953364372253,
+        "shap_value": -0.7442009449005127,
+        "impact": "decreases risk",
+        "interpretation": "Normal blood pressure"
+      },
+      {
+        "feature": "map",
+        "feature_name": "Mean Arterial Pressure",
+        "value": 88.3,
+        "unit": "mmHg",
+        "importance": 0.1574225127696991,
+        "shap_value": -0.29489409923553467,
+        "impact": "decreases risk",
+        "interpretation": "Normal mean arterial pressure"
+      },
+      {
+        "feature": "cholesterol",
+        "feature_name": "Cholesterol",
+        "value": 1,
+        "unit": "category",
+        "importance": 0.08715372532606125,
+        "shap_value": -0.18893566727638245,
+        "impact": "decreases risk",
+        "interpretation": "Normal cholesterol"
+      },
+      {
+        "feature": "bmi",
+        "feature_name": "Body Mass Index",
+        "value": 22.9,
+        "unit": "kg/m\u00b2",
+        "importance": 0.014448908157646656,
+        "shap_value": -0.07334321737289429,
+        "impact": "decreases risk",
+        "interpretation": "Normal weight"
+      }
+    ],
+    "feature_importance": [
+      {
+        "feature": "ap_hi",
+        "importance": 0.41575953364372253
+      },
+      {
+        "feature": "map",
+        "importance": 0.1574225127696991
+      },
+      {
+        "feature": "ap_lo",
+        "importance": 0.09826363623142242
+      },
+      {
+        "feature": "cholesterol",
+        "importance": 0.08715372532606125
+      },
+      {
+        "feature": "age_years",
+        "importance": 0.0679037868976593
+      },
+      {
+        "feature": "pulse_pressure",
+        "importance": 0.06620365381240845
+      },
+      {
+        "feature": "active",
+        "importance": 0.023476168513298035
+      },
+      {
+        "feature": "smoke",
+        "importance": 0.017291929572820663
+      },
+      {
+        "feature": "weight",
+        "importance": 0.01450774073600769
+      },
+      {
+        "feature": "bmi",
+        "importance": 0.014448908157646656
+      }
+    ]
+  }
+]
