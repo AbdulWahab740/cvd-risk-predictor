@@ -8,15 +8,10 @@ import requests
 import json
 import plotly.graph_objects as go
 from datetime import datetime
-from dotenv import load_dotenv
-import os 
-
-load_dotenv()
-
 
 # Configuration
 AGENT_BUILDER_API_URL = "https://my-elasticsearch-project-f43eb6.kb.asia-southeast1.gcp.elastic.cloud/api/agent_builder/agents/cvd_7/run"
-ELASTIC_API_KEY = os.getenv("ELASTIC_API_KEY")
+ELASTIC_API_KEY = st.secrets['ELASTIC_API_KEY']
 
 # Page config
 st.set_page_config(

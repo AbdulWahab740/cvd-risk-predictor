@@ -12,13 +12,13 @@ import PyPDF2
 from sentence_transformers import SentenceTransformer
 from elasticsearch import Elasticsearch, helpers
 from tqdm import tqdm
-from dotenv import load_dotenv
-load_dotenv()
+import streamlit as st
+
 # Configuration
 GUIDELINES_DIR = "./RAG/utils/guidelines"  # Put your PDF files here
 OUTPUT_JSON = "./RAG/guidelines_parsed.json"  # Intermediate storage
-ES_CLOUD_ID = os.getenv("ELASTIC_CLOUD_ID")
-ES_API_KEY = os.getenv("ELASTIC_API_KEY")
+ES_CLOUD_ID = st.secrets["ELASTIC_CLOUD_ID"]
+ES_API_KEY = st.secrets["ELASTIC_API_KEY"]
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 GUIDELINES_INDEX = "clinical_guidelines"
 

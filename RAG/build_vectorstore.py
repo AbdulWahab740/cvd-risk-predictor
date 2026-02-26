@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 from typing import List, Dict, Any
 from tqdm import tqdm
 from dotenv import load_dotenv
-
+import streamlit as st
 load_dotenv()
 # --- IMPORT TOPICS FROM data_fetch.py ---
 try:
@@ -27,11 +27,11 @@ EMBEDDING_MODEL_NAME = 'all-MiniLM-L6-v2'
 EMBEDDING_DIMENSION = 384  # Dimension for all-MiniLM-L6-v2
 
 # Elasticsearch Configuration
-ES_CLOUD_ID = os.getenv("ELASTIC_CLOUD_ID", None)  # Set via environment variable
-ES_API_KEY = os.getenv("ELASTIC_API_KEY", None)    # Set via environment variable
-ES_USERNAME = os.getenv("ELASTIC_USERNAME", "elastic")
-ES_PASSWORD = os.getenv("ELASTIC_PASSWORD", None)
-ES_HOST = os.getenv("ELASTICSEARCH_HOST", "http://localhost:9200")  # For local ES
+ES_CLOUD_ID = st.secrets["ELASTIC_CLOUD_ID", None]  # Set via environment variable
+ES_API_KEY = st.secrets["ELASTIC_API_KEY", None]  # Set via environment variable
+ES_USERNAME = st.secrets["ELASTIC_USERNAME", "elastic"]
+ES_PASSWORD = st.secrets["ELASTIC_PASSWORD", None]
+ES_HOST = st.secrets["ELASTICSEARCH_HOST", "http://localhost:9200"]  # For local ES
 
 # Index names
 PUBMED_INDEX = "pubmed_cardio_abstracts"
