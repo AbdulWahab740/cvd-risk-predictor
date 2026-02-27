@@ -2,7 +2,7 @@
 
 # Cardiovascular Risk Assessment Agent
 
-### Elasticsearch Agent Builder Hackathon 2026
+**A clinical decision support system powered by Elasticsearch Agent Builder, XGBoost, and RAG, delivering evidence-based cardiovascular risk reports.**
 
 [![Elasticsearch](https://img.shields.io/badge/Elasticsearch-8.0+-005571?style=for-the-badge&logo=elasticsearch&logoColor=white)](https://www.elastic.co/)
 [![Agent Builder](https://img.shields.io/badge/Agent_Builder-Enabled-00BFB3?style=for-the-badge)](https://elasticsearch.devpost.com/)
@@ -12,7 +12,6 @@
 [![Streamlit](https://img.shields.io/badge/Demo-Live_App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://cvd-risk-assess.streamlit.app/)
 [![Devpost](https://img.shields.io/badge/Hackathon-Devpost-003E54?style=for-the-badge)](https://elasticsearch.devpost.com/)
 
-**An AI-powered clinical decision support system using Elasticsearch Agent Builder**
 
 </div>
 
