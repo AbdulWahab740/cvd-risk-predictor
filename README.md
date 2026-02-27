@@ -54,14 +54,8 @@ The **Cardiovascular Clinical Decision Support (CDS) Agent** is an AI-powered as
 
 ✅ **Analyzes** patient vitals using machine learning (XGBoost)  
 ✅ **Searches** clinical practice guidelines (ACC/AHA)  
-✅ **Retrieves** peer-reviewed research (10,000+ PubMed abstracts)  
+✅ **Retrieves** peer-reviewed research (100+ PubMed abstracts)  
 ✅ **Synthesizes** evidence-based recommendations with citations  
-
-### What It Doesn't Do
-
-❌ Does **not** diagnose or prescribe treatment  
-❌ Does **not** replace physician judgment  
-✅ Provides **structured decision support** with transparent reasoning
 
 ---
 
@@ -77,7 +71,7 @@ Search 500-page guidelines → Find research papers →
 Synthesize recommendations → Document findings
 ```
 
-### Our Agent: 8 Seconds ⚡
+### Our Agent: under 1 minutes ⚡
 
 ```
 Patient data → Elasticsearch Agent Builder → 
@@ -166,13 +160,6 @@ Every recommendation includes:
 - Clinical guideline citation (Class I/IIa/etc.)
 - Level of evidence (A/B-R/C)
 - Supporting research (PMID)
-
-### ⚡ Production-Ready Performance
-
-- **Response time:** 8 seconds average
-- **Search latency:** <1 second
-- **Indexed documents:** 10,000+
-- **Concurrent users:** Scalable with Elasticsearch
 
 ---
 
@@ -386,8 +373,7 @@ Strong evidence (Class I recommendations), high certainty
 
 - **Index size:** 10,000+ documents
 - **Search latency:** <1 second average
-- **Agent response time:** 8 seconds end-to-end
-- **Concurrent requests:** Tested up to [X] simultaneous users
+- **Agent response time:** under 1 minutes
 
 ---
 
