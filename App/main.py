@@ -18,7 +18,12 @@ st.set_page_config(
     page_icon="🫀",
     layout="wide"
 )
+from docx import Document
+from datetime import datetime
+import io
 
+if "risk_report_data" not in st.session_state:
+    st.session_state.risk_report_data = None
 # Custom CSS
 st.markdown("""
 <style>
@@ -30,6 +35,7 @@ st.markdown("""
     }
     .risk-high {
         background-color: #ffebee;
+        color: black;
         padding: 1rem;
         border-left: 5px solid #f44336;
         border-radius: 5px;
@@ -37,12 +43,14 @@ st.markdown("""
     .risk-moderate {
         background-color: #fff3e0;
         padding: 1rem;
+        color: black;
         border-left: 5px solid #ff9800;
         border-radius: 5px;
     }
     .risk-low {
         background-color: #e8f5e9;
         padding: 1rem;
+        color: black;
         border-left: 5px solid #4caf50;
         border-radius: 5px;
     }
@@ -153,7 +161,7 @@ with st.sidebar:
 
 
 # Main area
-if st.sidebar.button("🔍 Assess Risk", type="primary", use_container_width=True):
+if st.sidebar.button("🔍 Assess Risk", type="primary", width='stretch'):
     
     # Prepare patient data
     patient_data = {
@@ -233,10 +241,11 @@ Please provide complete risk assessment with evidence-based recommendations.
             )
             progress_bar.progress(100)
             status_text.text("✅ Assessment complete!")
+            st.write(response)
             
             if response.status_code == 200:
                 result = response.json()
-                
+                st.session_state.risk_report_data = result
                 # Parse agent response
                 # (Structure depends on your agent's output format)
                 agent_response = result.get('response', '')
@@ -248,7 +257,8 @@ Please provide complete risk assessment with evidence-based recommendations.
                 # Risk Score Gauge
                 st.subheader("Risk Score")
                 
-                risk_score = risk_data.get('risk_score', 0.5)
+                risk_score = result['steps'][1]['results'][0]['data']['execution']['output']['data']['risk_score']
+                print(f"Extracted Risk Score: {risk_score}")
                 risk_percentage = int(risk_score * 100)
                 risk_category = risk_data.get('risk_category', 'MODERATE')
                 
@@ -279,7 +289,7 @@ Please provide complete risk assessment with evidence-based recommendations.
                 ))
                 
                 fig.update_layout(height=300)
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width='stretch')
                 
                 # Risk category box
                 if risk_category == "HIGH":
@@ -307,13 +317,23 @@ Please provide complete risk assessment with evidence-based recommendations.
                 st.subheader("Evidence-Based Recommendations")
                 st.markdown(agent_response['message'])
                 
-                # Download report
-                st.download_button(
-                    label="📄 Download Full Report",
-                    data=json.dumps(result, indent=2),
-                    file_name=f"cvd_assessment_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
-                    mime="application/json"
-                )
+                # Create document in memory
+                if st.session_state.risk_report_data:
+                    
+                    # Create the docx in-memory
+                    doc = Document()
+                    doc.add_heading('Clinical Risk Report', 0)
+                    doc.add_paragraph(f"Score: {risk_percentage}")
+                    doc.add_paragraph(agent_response['message'])
+                    bio = io.BytesIO()
+                    doc.save(bio)
+                    
+                    st.download_button(
+                        label="Download Report",
+                        data=bio.getvalue(),
+                        file_name="risk_report.docx",
+                        mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    )
                 
             else:
                 st.error(f"Error: {response.status_code} - {response.text}")
