@@ -10,7 +10,6 @@ import plotly.graph_objects as go
 from datetime import datetime
 
 # Configuration
-AGENT_BUILDER_API_URL = "https://my-elasticsearch-project-f43eb6.kb.asia-southeast1.gcp.elastic.cloud/api/agent_builder/agents/cvd_7/run"
 ELASTIC_API_KEY = st.secrets['ELASTIC_API_KEY']
 
 # Page config
