@@ -22,7 +22,7 @@
 | Name | GitHub | Role |
 |------|--------|------|
 | Abdul Wahab | [@AbdulWahab740](https://github.com/AbdulWahab740) | RAG + Elastic Agent Integration  |
-| Ayesha Saleem | [@aysh34](https://github.com/aysh34) | Machine Learning Engineer |
+| Ayesha Saleem | [@aysh34](https://github.com/aysh34) | Machine Learning Engineer + Documentation |
 
 ---
 
