@@ -6,7 +6,7 @@ matplotlib==3.10.8
 plotly==6.5.2
 Pillow==12.1.1
 xgboost==3.2.0
-shap
 python-docx
 tqdm
 requests
+
